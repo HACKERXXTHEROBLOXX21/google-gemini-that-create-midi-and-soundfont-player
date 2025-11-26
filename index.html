@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FluidSynth WebAssembly Demo</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        #status { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>FluidSynth WASM Synthesizer Demo</h1>
+    <button id="startButton">Click to Initialize and Play Note (C4)</button>
+    <p id="status">Status: Waiting for user action...</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-synthesizer@1.1.0/externals/libfluidsynth-2.4.6.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-synthesizer@1.1.0/dist/js-synthesizer.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
