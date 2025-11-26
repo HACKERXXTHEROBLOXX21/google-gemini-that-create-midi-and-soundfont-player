@@ -2,17 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FluidSynth WebAssembly Demo</title>
+    <title>FluidSynth WASM Synthesizer</title>
     <style>
-        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
-        #status { margin-top: 20px; font-weight: bold; }
+        body { 
+            font-family: sans-serif; 
+            text-align: center; 
+            margin-top: 50px; 
+            background-color: #f4f4f9;
+        }
+        .controls {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            display: inline-block;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        button, input[type="file"] { 
+            padding: 10px 15px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            margin: 5px;
+            border-radius: 4px;
+        }
+        #visualizer {
+            border: 1px solid #aaa;
+            background-color: #e0e0e0;
+            margin-top: 20px;
+        }
+        #status { 
+            margin-top: 20px; 
+            font-weight: bold; 
+            color: #333;
+        }
     </style>
 </head>
 <body>
-    <h1>FluidSynth WASM Synthesizer Demo</h1>
-    <button id="startButton">Click to Initialize and Play Note (C4)</button>
-    <p id="status">Status: Waiting for user action...</p>
+    <h1>FluidSynth WASM Synthesizer 🎵</h1>
+
+    <div class="controls">
+        <label for="sfUpload">Upload SoundFont (.sf2/.sf3):</label>
+        <input type="file" id="sfUpload" accept=".sf2,.sf3">
+
+        <label for="midiUpload">Upload MIDI File (.mid):</label>
+        <input type="file" id="midiUpload" accept=".mid,.midi">
+        
+        <br><br>
+        <button id="startButton" disabled>Load and Play MIDI</button>
+    </div>
+
+    <canvas id="visualizer" width="800" height="150"></canvas>
+    <p id="status">Status: Upload a SoundFont and MIDI file to begin.</p>
 
     <script src="https://cdn.jsdelivr.net/npm/js-synthesizer@1.1.0/externals/libfluidsynth-2.4.6.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-synthesizer@1.1.0/dist/js-synthesizer.js"></script>
